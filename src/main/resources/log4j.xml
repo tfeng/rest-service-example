@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration PUBLIC
+    "-//APACHE//DTD LOG4J 1.2//EN"
+    "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+  <appender name="serviceLog" class="org.apache.log4j.rolling.RollingFileAppender">
+    <param name="File" value="logs/server.log" />
+    <param name="Append" value="true" />
+    <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+      <param name="FileNamePattern" value="logs/service.log.%d.gz" />
+    </rollingPolicy>
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{yyyy/MM/dd HH:mm:ss.SSS} %p [%c{1}] %m%n" />
+    </layout>
+  </appender>
+
+  <root>
+    <level value="debug" />
+    <appender-ref ref="serviceLog" />
+  </root>
+
+</log4j:configuration>
