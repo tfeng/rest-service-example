@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-  <entry key="application.name">Application</entry>
-  <entry key="application.beanName">application</entry>
-  <entry key="application.enableStatisticsMBean">true</entry>
-  <entry key="application.packages">me.tfeng.rest.resource;me.tfeng.rest.util</entry>
-
   <entry key="networkListener.name">servletListener</entry>
   <entry key="networkListener.host">localhost</entry>
   <entry key="networkListener.port">3388</entry>
 
-  <entry key="servletRegistration.class">me.tfeng.rest.server.Application</entry>
+  <entry key="servletRegistration.class">me.tfeng.rest.resource.Application</entry>
   <entry key="servletRegistration.containerRequestFilters">me.tfeng.rest.util.LoggingFilter</entry>
   <entry key="servletRegistration.containerResponseFilters">me.tfeng.rest.util.LoggingFilter</entry>
   <entry key="servletRegistration.servletName">jersey-servlet</entry>
   <entry key="servletRegistration.servletClass">org.glassfish.jersey.servlet.ServletContainer</entry>
 
   <entry key="webappContext.class">org.springframework.web.context.support.XmlWebApplicationContext</entry>
-  <entry key="webappContext.configLocation">classpath:spring/*.xml</entry>
+  <entry key="webappContext.configLocation">classpath:application/*-context.xml</entry>
   <entry key="webappContext.listeners">org.springframework.web.context.ContextLoaderListener</entry>
 </properties>

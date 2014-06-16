@@ -8,4 +8,8 @@
 
   <context:component-scan base-package="me.tfeng.rest.resource"/>
 
+  <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="locations" value="classpath:application/*-config.xml" />
+  </bean>
+
 </beans>

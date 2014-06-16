@@ -1,4 +1,4 @@
-package me.tfeng.rest.server;
+package me.tfeng.rest.resource;
 
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.InitializingBean;

@@ -1,4 +1,4 @@
-package me.tfeng.rest.server;
+package me.tfeng.rest.resource;
 
 import java.util.List;
 
@@ -11,6 +11,8 @@ import org.glassfish.jersey.server.spring.scope.RequestContextFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.web.context.ContextLoader;
 
 import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
 import com.google.common.base.Joiner;
@@ -32,8 +34,11 @@ public class Application extends ResourceConfig implements PostConstruct {
   @Autowired
   private JacksonJaxbJsonProvider provider;
 
+  @Override
   public void postConstruct() {
-    ConfigurableListableBeanFactory beanFactory = Main.SERVLET_CONTEXT.getBeanFactory();
+    ConfigurableApplicationContext applicationContext =
+        (ConfigurableApplicationContext) ContextLoader.getCurrentWebApplicationContext();
+    ConfigurableListableBeanFactory beanFactory = applicationContext.getBeanFactory();
     beanFactory.autowireBean(this);
     beanFactory.registerSingleton(beanName, this);
 

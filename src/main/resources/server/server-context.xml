@@ -10,7 +10,7 @@
   <context:component-scan base-package="me.tfeng.rest.server"/>
 
   <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-    <property name="location" value="classpath:servlet/servlet-config.xml" />
+    <property name="locations" value="classpath:server/*-config.xml" />
   </bean>
 
 </beans>
